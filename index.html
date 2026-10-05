@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>دعوة خطوبة إبراهيم وفاطمة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f3ead9;--ivory:#fbf6ea;--gold:#a8772f;--gold2:#d4ae67;--ink:#2a2118;--sage:#7d8c68;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+*{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);font-family:Amiri,"Noto Naskh Arabic",serif;background:radial-gradient(120% 80% at 50% 0%,#fbf4e4 0,var(--cream) 55%,#e6d8bd 100%) fixed}
+canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
+#cb{z-index:1;filter:blur(1.3px)}#cf{z-index:5}
+main{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;padding:20px 16px 56px;opacity:0;transition:opacity 1.2s}
+body.on main{opacity:1}
+.stage{perspective:1100px;width:min(92vw,520px)}
+.card{position:relative;border-radius:14px;overflow:hidden;transform-style:preserve-3d;will-change:transform;box-shadow:0 34px 60px -26px rgba(90,60,20,.55),0 0 0 1px rgba(168,119,47,.25);transform:scale(.9)}
+body.on .card{animation:rise 1.4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(40px) scale(.9)}}
+.card img{display:block;width:100%;height:auto}
+.card::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--gx,50%) var(--gy,30%),rgba(255,255,255,.55),transparent 55%);mix-blend-mode:soft-light}
+.sweep{position:absolute;inset:-20% -60%;background:linear-gradient(105deg,transparent 42%,rgba(255,244,214,.55) 50%,transparent 58%);animation:sw 6s ease-in-out 2s infinite;pointer-events:none}
+@keyframes sw{0%{transform:translateX(-60%)}55%,100%{transform:translateX(60%)}}
+.count{text-align:center;margin-top:34px;width:min(92vw,520px);will-change:transform}
+.lead{margin:0 0 4px;font-size:1.25rem;color:var(--gold)}
+.names{margin:0 0 20px;font-family:"Aref Ruqaa",Amiri,serif;font-size:clamp(2.4rem,11vw,3.6rem);line-height:1.3;background:linear-gradient(100deg,#6b4a18 20%,#e3c27d 45%,#a8772f 55%,#6b4a18 80%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 5s linear infinite}
+@keyframes sh{to{background-position:-250% 0}}
+.names span{display:inline-block;animation:hb 1.6s ease-in-out infinite;-webkit-text-fill-color:#b3472f;font-size:.6em}
+@keyframes hb{50%{transform:scale(1.25)}}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.u{padding:16px 4px 12px;border:1px solid rgba(168,119,47,.55);border-radius:40px 40px 14px 14px;background:rgba(255,250,238,.72);backdrop-filter:blur(4px);box-shadow:inset 0 0 0 4px rgba(255,250,238,.8),0 12px 24px -16px rgba(90,60,20,.5)}
+.u b{display:block;font-size:clamp(1.8rem,9vw,2.6rem);line-height:1.1;color:var(--gold);font-variant-numeric:tabular-nums}
+.u i{font-style:normal;font-size:1rem}
+.u b.t{animation:tk .5s}
+@keyframes tk{from{transform:translateY(-6px);opacity:.3}}
+.when{margin:22px 0 2px;font-size:1.25rem}
+.where{margin:0;font-family:Georgia,serif;letter-spacing:.12em;font-size:1rem;color:var(--gold)}
+#gate{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;text-align:center;background:radial-gradient(100% 70% at 50% 40%,#fbf4e4,#e8dcc2);transition:opacity .9s,transform .9s}
+body.on #gate{opacity:0;transform:scale(1.08);pointer-events:none}
+#gate h2{margin:0;font-family:"Aref Ruqaa",Amiri,serif;font-size:clamp(2.2rem,10vw,3.4rem);color:#4a3418;line-height:1.5}
+#gate h2 span{display:inline-block;opacity:0;animation:wd 1s ease forwards}
+#gate h2 span:nth-child(2){animation-delay:.5s}#gate h2 span:nth-child(3){animation-delay:1s}
+@keyframes wd{from{opacity:0;transform:translateY(14px);filter:blur(6px)}to{opacity:1}}
+#go{font:700 1.3rem Amiri,serif;padding:14px 38px;color:#fffaf0;border:0;border-radius:40px 40px 14px 14px;background:linear-gradient(135deg,#b88a3e,#8a5f1f);box-shadow:0 14px 26px -12px rgba(90,60,20,.7);cursor:pointer;opacity:0;animation:wd 1s 1.6s ease forwards}
+#go:focus-visible,#snd:focus-visible{outline:3px solid #6b4a18;outline-offset:3px}
+#snd{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));left:12px;z-index:10;width:44px;height:44px;border-radius:50%;border:1px solid rgba(168,119,47,.6);background:rgba(255,250,238,.85);font-size:1.2rem;cursor:pointer;display:none}
+body.on #snd{display:block}
+@media (prefers-reduced-motion:reduce){.sweep,.names,.names span{animation:none}}
+</style>
+</head>
+<body>
+<canvas id="cb"></canvas>
+<div id="gate">
+  <h2><span>زار</span> <span>الفرح</span> <span>دارنا</span></h2>
+  <button id="go">افتح الدعوة</button>
+</div>
+<button id="snd" aria-label="تشغيل أو إيقاف الصوت">🔊</button>
+<main>
+  <div class="stage"><div class="card" id="card"><img src="assets/card.webp" width="1100" height="1561" alt="دعوة خطوبة إبراهيم وفاطمة، السبت 10 أكتوبر 2026، الساعة 8:00 مساءً، Nile Nights Hall"><div class="sweep"></div></div></div>
+  <section class="count" id="count">
+    <p class="lead">باقي على فرحتنا</p>
+    <h1 class="names">إبراهيم <span>♥</span> فاطمة</h1>
+    <div class="grid" id="grid">
+      <div class="u"><b>00</b><i>يوم</i></div><div class="u"><b>00</b><i>ساعة</i></div><div class="u"><b>00</b><i>دقيقة</i></div><div class="u"><b>00</b><i>ثانية</i></div>
+    </div>
+    <p class="when">السبت 10 أكتوبر 2026، الساعة 8:00 مساءً</p>
+    <p class="where">NILE NIGHTS HALL</p>
+  </section>
+</main>
+<canvas id="cf"></canvas>
+<audio id="au" loop preload="auto" src="assets/song.mp3"></audio>
+<script>
+(function(){
+var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var au=document.getElementById('au'),card=document.getElementById('card'),cnt=document.getElementById('count');
+var tx=0,ty=0,cx=0,cy=0,base=null;
+function cl(v){return Math.max(-1,Math.min(1,v))}
+function onOri(e){if(e.gamma==null||e.beta==null)return;if(base==null)base=e.beta;tx=cl(e.gamma/25);ty=cl((e.beta-base)/25)}
+if(!RM)addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;tx=cl((e.clientX/innerWidth-.5)*2);ty=cl((e.clientY/innerHeight-.5)*2)});
+document.getElementById('go').onclick=function(){
+  au.volume=.85;au.play().catch(function(){});
+  document.body.classList.add('on');
+  try{
+    if(!RM){
+      if(window.DeviceOrientationEvent&&DeviceOrientationEvent.requestPermission){
+        DeviceOrientationEvent.requestPermission().then(function(r){if(r==='granted')addEventListener('deviceorientation',onOri)}).catch(function(){});
+      }else addEventListener('deviceorientation',onOri);
+    }
+  }catch(e){}
+};
+var snd=document.getElementById('snd');
+snd.onclick=function(){if(au.paused){au.play();snd.textContent='🔊'}else{au.pause();snd.textContent='🔇'}};
+
+/* countdown */
+var T=new Date('2026-10-10T20:00:00+03:00').getTime();
+var bs=document.querySelectorAll('#grid b'),last=[];
+function pad(n){return n<10?'0'+n:''+n}
+function tick(){
+  var d=T-Date.now();
+  if(d<=0){
+    var g=document.getElementById('grid');
+    if(Date.now()-T<6*36e5){g.outerHTML='<p class="lead" style="font-size:1.8rem">الفرحة بدأت.. نورتونا</p>'}
+    else{g.outerHTML='<p class="lead" style="font-size:1.6rem">شكرًا لمشاركتكم فرحتنا</p>'}
+    return;
+  }
+  var v=[Math.floor(d/864e5),Math.floor(d%864e5/36e5),Math.floor(d%36e5/6e4),Math.floor(d%6e4/1e3)];
+  v.forEach(function(x,i){var s=pad(x);if(last[i]!==s){bs[i].textContent=s;last[i]=s;if(i===3&&!RM){bs[i].classList.remove('t');void bs[i].offsetWidth;bs[i].classList.add('t')}}});
+  setTimeout(tick,500);
+}
+tick();
+
+/* petals, blossoms, leaves, sparkles */
+var cb=document.getElementById('cb'),cf=document.getElementById('cf');
+var xb=cb.getContext('2d'),xf=cf.getContext('2d'),W,H,P=[];
+var COL=['#fffaf0','#f8e6dc','#f3d6cc','#fff3e0'];
+function size(){var r=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;[cb,cf].forEach(function(c){c.width=W*r;c.height=H*r;c.getContext('2d').setTransform(r,0,0,r,0,0)})}
+size();addEventListener('resize',size);
+function mk(i){
+  var k=Math.random(),z=.25+Math.random()*.75;
+  return{x:Math.random()*W,y:Math.random()*H,z:z,s:(10+Math.random()*16)*(.6+z*.7),r:Math.random()*6.28,vr:(Math.random()-.5)*1.2,
+    sw:.6+Math.random()*1.2,ph:Math.random()*6.28,c:COL[i%4],
+    t:k<.28?0:k<.6?1:k<.82?2:3};
+}
+for(var i=0;i<(innerWidth<600?24:40);i++)P.push(mk(i));
+function star(c,s){c.beginPath();c.moveTo(0,-s);c.quadraticCurveTo(0,0,s,0);c.quadraticCurveTo(0,0,0,s);c.quadraticCurveTo(0,0,-s,0);c.quadraticCurveTo(0,0,0,-s);c.fill()}
+function draw(c,p,t){
+  c.save();c.translate(p.px,p.py);c.rotate(p.r);
+  c.globalAlpha=.5+.45*p.z;c.strokeStyle='rgba(168,119,47,.4)';c.lineWidth=.8;
+  var s=p.s;
+  if(p.t===0){
+    c.fillStyle=p.c;
+    for(var i=0;i<5;i++){c.rotate(1.2566);c.beginPath();c.ellipse(0,-s*.5,s*.36,s*.55,0,0,6.283);c.fill();c.stroke()}
+    c.fillStyle='#d4ae67';c.beginPath();c.arc(0,0,s*.14,0,6.283);c.fill();
+  }else if(p.t===1){
+    c.fillStyle=p.c;c.beginPath();c.ellipse(0,0,s*.3,s*.55,0,0,6.283);c.fill();c.stroke();
+  }else if(p.t===2){
+    c.globalAlpha=(.25+.75*Math.abs(Math.sin(t*p.sw+p.ph)))*(.5+.5*p.z);c.fillStyle='#d4ae67';star(c,s*.45);
+  }else{
+    c.fillStyle='#8a9a74';c.beginPath();c.moveTo(0,-s*.6);c.quadraticCurveTo(s*.45,0,0,s*.6);c.quadraticCurveTo(-s*.45,0,0,-s*.6);c.fill();
+  }
+  c.restore();
+}
+var lt=0;
+function loop(ms){
+  var t=ms/1000,dt=Math.min(.05,t-lt);lt=t;
+  cx+=(tx-cx)*.08;cy+=(ty-cy)*.08;
+  if(!RM){
+    card.style.transform='rotateY('+(cx*11)+'deg) rotateX('+(-cy*9)+'deg)';
+    card.style.setProperty('--gx',(50+cx*40)+'%');card.style.setProperty('--gy',(30+cy*40)+'%');
+    cnt.style.transform='translate('+(cx*-8)+'px,'+(cy*-4)+'px)';
+  }
+  xb.clearRect(0,0,W,H);xf.clearRect(0,0,W,H);
+  var m=RM?.15:1;
+  P.forEach(function(p){
+    if(p.t===2){p.y-=dt*4*m}else{p.y+=dt*(22+34*p.z)*m;p.x+=Math.sin(t*p.sw+p.ph)*.35*m;p.r+=p.vr*dt*m}
+    if(p.y>H+40){p.y=-30;p.x=Math.random()*W}if(p.y<-30)p.y=H+30;
+    if(p.x>W+40)p.x=-30;if(p.x<-40)p.x=W+30;
+    p.px=p.x-cx*p.z*55;p.py=p.y-cy*p.z*35;
+    draw(p.z<.55?xb:xf,p,t);
+  });
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
